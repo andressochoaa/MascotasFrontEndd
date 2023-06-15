@@ -3,6 +3,6 @@ export interface Mascota {
     nombre: string,
     especie: string,
     raza: string,
-    fechaNacimiento: Date,
-    idDueño: number
+    fechaNacimiento: string,
+    idDueno: number
 }

@@ -1,1 +1,40 @@
-<p>listmascotas works!</p>
+<div class="title">
+    <h1>Listado Mascotas</h1>
+</div>
+
+<div class="container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="especie">
+            <th mat-header-cell *matHeaderCellDef> Especie </th>
+            <td mat-cell *matCellDef="let element"> {{element.especie}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="raza">
+            <th mat-header-cell *matHeaderCellDef> Raza </th>
+            <td mat-cell *matCellDef="let element"> {{element.raza}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fechaNacimiento">
+            <th mat-header-cell *matHeaderCellDef> Nacimiento </th>
+            <td mat-cell *matCellDef="let element"> {{element.fechaNacimiento}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="idDueno">
+            <th mat-header-cell *matHeaderCellDef> id Dueño </th>
+            <td mat-cell *matCellDef="let element"> {{element.idDueno}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</div>
