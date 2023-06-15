@@ -5,6 +5,7 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import {Mascota} from 'src/app/interfaces/mascota';
 
 const listMascotas: Mascota[] = [
@@ -25,6 +26,7 @@ const listMascotas: Mascota[] = [
 export class ListmascotasComponent implements AfterViewInit {
   displayedColumns: string[] = ['nombre', 'especie', 'raza', 'fechaNacimiento', 'idDueno', 'acciones'];
   dataSource = new MatTableDataSource<Mascota>(listMascotas);
+  loading: boolean = false;
 
   @ViewChild(MatPaginator) paginator! : MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -35,6 +37,10 @@ export class ListmascotasComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  constructor(private _snackBar: MatSnackBar){
+  }
+
+  // filtro busqueda
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -42,5 +48,18 @@ export class ListmascotasComponent implements AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  // mensaje eliminacion de mascota
+  eliminarMascota(){
+
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+      this._snackBar.open('Mascota eliminada satisfactoriamente.', '', {
+        horizontalPosition: 'right',
+        duration: 3000
+      });
+    }, 3000);
   }
 }
