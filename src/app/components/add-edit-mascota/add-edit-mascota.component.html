@@ -1,1 +1,45 @@
-<p>add-edit-mascota works!</p>
+<div class="title">
+    <h1>Agrega Mascota</h1>
+</div>
+
+<app-spinner *ngIf="loading"></app-spinner>
+
+<div class="container">
+    <mat-card class="card-add-edit">
+        <mat-card-title>
+            Datos de la mascota
+        </mat-card-title>
+        <form>
+            <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-tile>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput autocomplete="off">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Raza</mat-label>
+                        <input matInput autocomplete="off">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Fecha nacimiento (año)</mat-label>
+                        <input matInput autocomplete="off">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Id dueño</mat-label>
+                        <input matInput autocomplete="off">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2">
+                    <button routerLink="/listaMascotas" mat-raised-button color="accent">Aceptar</button>
+                    <button routerLink="/listaMascotas" mat-raised-button>Volver</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>

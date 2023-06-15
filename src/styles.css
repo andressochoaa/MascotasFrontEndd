@@ -13,4 +13,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .container{
   margin: 5% 20%;
   background-color: #494a49;
+  color: rgb(215, 215, 215)
+}
+
+.card {
+  align-items: center;
+  text-align: center;
+  color: rgb(215, 215, 215);
 }

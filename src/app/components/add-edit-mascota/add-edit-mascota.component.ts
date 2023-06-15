@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-edit-mascota.component.css']
 })
 export class AddEditMascotaComponent {
-
+  loading: boolean = false;
 }

@@ -52,7 +52,6 @@ export class ListmascotasComponent implements AfterViewInit {
 
   // mensaje eliminacion de mascota
   eliminarMascota(){
-
     this.loading = true;
     setTimeout(() => {
       this.loading = false;
