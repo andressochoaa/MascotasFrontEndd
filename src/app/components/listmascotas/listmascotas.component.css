@@ -2,18 +2,6 @@ table {
     width: 100%;
   }
 
-  .title{
-    padding:40px;
-    background-color: #494a49;
-    text-align: center;
-    color: white;
-  }
-
-  .container{
-    margin: 5% 20%;
-    background-color: #494a49;
-  }
-
   td, th {
     width: 15%;
   }
