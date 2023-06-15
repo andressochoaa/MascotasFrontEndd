@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+//Modulos
+import { SharedModule } from './shared/shared.module';
+
 //components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,8 +11,6 @@ import { AddEditMascotaComponent } from './components/add-edit-mascota/add-edit-
 import { ListmascotasComponent } from './components/listmascotas/listmascotas.component';
 import { ViewMascotasComponent } from './components/view-mascotas/view-mascotas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import {MatTableModule} from '@angular/material/table';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatTableModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

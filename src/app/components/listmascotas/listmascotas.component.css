@@ -4,15 +4,41 @@ table {
 
   .title{
     padding:40px;
-    background-color: royalblue;
+    background-color: #494a49;
     text-align: center;
     color: white;
   }
 
   .container{
-    margin: 0 20%;
+    margin: 5% 20%;
+    background-color: #494a49;
   }
 
   td, th {
     width: 15%;
   }
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .delete {
+    cursor: pointer;
+    color: #e84e2f;
+  }
+
+  .search {
+    cursor: pointer;
+  }
+
+  .edit {
+    cursor: pointer;
+    color:aqua;
+  }
+
+  .agregar {
+    font-size: 12px;
+    line-height: 26px;
+  }
+  
