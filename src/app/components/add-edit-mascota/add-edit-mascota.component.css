@@ -3,3 +3,8 @@
     text-align: center;
     color: rgb(215, 215, 215);
   }
+
+  .nombre-m-f-f {
+    width: 72%;
+    margin: 5px;
+  }

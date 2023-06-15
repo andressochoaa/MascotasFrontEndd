@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 //COMPONENTS
 import { SpinnerComponent } from './spinner/spinner.component';
 
+// MODULOS
+import {ReactiveFormsModule} from '@angular/forms';
+
 // ANGULAR MATERIALS 
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -35,7 +38,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatCardModule,
     MatSnackBarModule,
     MatProgressBarModule,
-    MatGridListModule
+    MatGridListModule,
+    ReactiveFormsModule
   ],
   exports: [
     CommonModule,
@@ -51,7 +55,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatSnackBarModule,
     SpinnerComponent,
     MatProgressBarModule,
-    MatGridListModule
+    MatGridListModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

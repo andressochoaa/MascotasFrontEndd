@@ -9,34 +9,40 @@
         <mat-card-title>
             Datos de la mascota
         </mat-card-title>
-        <form>
+        <form [formGroup]="form"  (ngSubmit)="agregarMascota()"> 
             <mat-grid-list cols="2" rowHeight="80px">
+                <mat-grid-tile [colspan]="2">
+                    <mat-form-field appearance="fill" class="nombre-m-f-f">
+                        <mat-label>Nombre</mat-label>
+                        <input formControlName="nombre" matInput autocomplete="off">
+                    </mat-form-field>
+                </mat-grid-tile>
                 <mat-grid-tile>
                     <mat-form-field appearance="fill">
-                        <mat-label>Nombre</mat-label>
-                        <input matInput autocomplete="off">
+                        <mat-label>Especie</mat-label>
+                        <input formControlName="especie" matInput autocomplete="off">
                     </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile>
                     <mat-form-field appearance="fill">
                         <mat-label>Raza</mat-label>
-                        <input matInput autocomplete="off">
+                        <input formControlName="raza" matInput autocomplete="off">
                     </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile>
                     <mat-form-field appearance="fill">
                         <mat-label>Fecha nacimiento (año)</mat-label>
-                        <input matInput autocomplete="off">
+                        <input type="number" formControlName="fechaNacimiento" matInput autocomplete="off">
                     </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile>
                     <mat-form-field appearance="fill">
                         <mat-label>Id dueño</mat-label>
-                        <input matInput autocomplete="off">
+                        <input type="number" formControlName="idDueno" matInput autocomplete="off">
                     </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile [colspan]="2">
-                    <button routerLink="/listaMascotas" mat-raised-button color="accent">Aceptar</button>
+                    <button [disabled]="form.invalid" type="submit" mat-raised-button color="accent">Aceptar</button>
                     <button routerLink="/listaMascotas" mat-raised-button>Volver</button>
                 </mat-grid-tile>
             </mat-grid-list>
