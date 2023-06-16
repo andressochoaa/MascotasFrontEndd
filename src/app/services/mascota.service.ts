@@ -25,5 +25,10 @@ export class MascotaService {
   getMascota(id: number): Observable<Mascota> {
     return this.http.get<Mascota>(`${this.AplicacionUrl}${this.ApiUrl}${id}`);
   }
+
+  //borramos mascota por id
+  deleteMascota(id: number): Observable<void>{
+    return this.http.delete<void>(`${this.AplicacionUrl}${this.ApiUrl}${id}`)
+  }
 }
 

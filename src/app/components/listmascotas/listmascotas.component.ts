@@ -59,14 +59,23 @@ export class ListmascotasComponent implements AfterViewInit {
   }
 
   // mensaje eliminacion de mascota
-  eliminarMascota(){
+  eliminarMascota(id: number){
     this.loading = true;
-    setTimeout(() => {
+    
+    //accedemos al servicio
+    this._mascotaService.deleteMascota(id).subscribe(() => {
+      this.exitoMessage();
       this.loading = false;
-      this._snackBar.open('Mascota eliminada satisfactoriamente.', '', {
-        horizontalPosition: 'right',
-        duration: 3000
-      });
-    }, 3000);
+      //actualizamos para mostrar de nuevo sin el que se eliminó
+      this.obtenerMascotas(); 
+    });
+  }
+
+  //metodo para el mensaje de eliminacion correcta
+  exitoMessage(){
+    this._snackBar.open('Mascota eliminada satisfactoriamente.', '', {
+      horizontalPosition: 'right',
+      duration: 3000
+    });
   }
 }
