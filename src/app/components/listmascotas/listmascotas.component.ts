@@ -7,15 +7,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Mascota} from 'src/app/interfaces/mascota';
-
-const listMascotas: Mascota[] = [
-  {nombre: 'Kira', especie: 'perro', raza: 'criollo', fechaNacimiento: '2022', idDueno: 19213 },
-  {nombre: 'Luna', especie: 'perro', raza: 'mini pinscher', fechaNacimiento: '2020', idDueno: 21210 },
-  {nombre: 'BradPitbull', especie: 'perro', raza: 'pitbull', fechaNacimiento: '2019', idDueno: 11344 },
-  {nombre: 'Dale', especie: 'perro', raza: 'bulldog', fechaNacimiento: '2023', idDueno: 11111 },
-  {nombre: 'Katy', especie: 'perro', raza: 'pinscher', fechaNacimiento: '2021', idDueno: 19920 },
-  {nombre: 'Morgan', especie: 'perro', raza: 'beagle', fechaNacimiento: '2020', idDueno: 17582 }
-];
+import { MascotaService } from 'src/app/services/mascota.service';
 
 @Component({
   selector: 'app-listmascotas',
@@ -25,11 +17,15 @@ const listMascotas: Mascota[] = [
 
 export class ListmascotasComponent implements AfterViewInit {
   displayedColumns: string[] = ['nombre', 'especie', 'raza', 'fechaNacimiento', 'idDueno', 'acciones'];
-  dataSource = new MatTableDataSource<Mascota>(listMascotas);
+  dataSource = new MatTableDataSource<Mascota>();
   loading: boolean = false;
 
   @ViewChild(MatPaginator) paginator! : MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+  ngOnInit(): void{
+    this.obtenerMascotas();
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -37,8 +33,8 @@ export class ListmascotasComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  constructor(private _snackBar: MatSnackBar){
-  }
+  //listado mascotas mediante i dep
+  constructor(private _snackBar: MatSnackBar, private _mascotaService:MascotaService) { }
 
   // filtro busqueda
   applyFilter(event: Event) {
@@ -48,6 +44,18 @@ export class ListmascotasComponent implements AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  //listado mediante iny depend
+  obtenerMascotas() {
+    this.loading = true;
+    this._mascotaService.getMascotas().subscribe(data => {
+      this.dataSource.data = data;
+      this.loading = false;
+    }, error => {
+      this.loading = false,
+      alert("Perdón, está ocurriendo un error...")
+    });
   }
 
   // mensaje eliminacion de mascota
